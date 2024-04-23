@@ -21,7 +21,8 @@ class MainWindow(QWidget):
         self.setWindowFlags(Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint)
 
 
-        # key animation (`, /, and \, and all function buttons are missing)
+        # key animation
+        # (only insert, print screen, home, page up, page down, end, are missing. delete is preserved to close listener)
         files = list()
         for f in listdir("assets/"):
             if isfile(join("assets/", f)):
