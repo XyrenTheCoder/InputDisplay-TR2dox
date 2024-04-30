@@ -15,8 +15,8 @@ class MainWindow(QWidget):
         super(MainWindow, self).__init__()
         self.setWindowTitle("Input Display v0.1 beta")
         self.resize(800, 400)
-        self.move(0, 700)
-        
+        self.move(0, 800)
+
         self.setAttribute(Qt.WA_TranslucentBackground, True)
         self.setWindowFlags(Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint)
 
@@ -93,6 +93,15 @@ class MainWindow(QWidget):
         self.d.setPixmap(self.key_d.scaled(50, 50))
         self.d.move(280, 120)
 
+        # f
+        self.f_bg = QLabel(self)
+        self.f_bg.setPixmap(self.key_square_fg.scaled(50, 50))
+        self.f_bg.move(340, 120)
+
+        self.f = QLabel(self)
+        self.f.setPixmap(self.key_f.scaled(50, 50))
+        self.f.move(340, 120)
+
 
         # e
         self.e_bg = QLabel(self)
@@ -131,11 +140,11 @@ class MainWindow(QWidget):
         # enter
         self.enter_bg = QLabel(self)
         self.enter_bg.setPixmap(self.key_rect_fg.scaled(100, 50))
-        self.enter_bg.move(370, 120)
+        self.enter_bg.move(400, 120)
 
         self.enter = QLabel(self)
         self.enter.setPixmap(self.key_enter.scaled(100, 50))
-        self.enter.move(370, 120)
+        self.enter.move(400, 120)
 
 
         self.show()
@@ -155,6 +164,8 @@ def on_press(key):
             window.s_bg.setPixmap(window.key_square_bg.scaled(50, 50))
         if key.char.lower() == 'd':
             window.d_bg.setPixmap(window.key_square_bg.scaled(50, 50))
+        if key.char.lower() == 'f':
+            window.f_bg.setPixmap(window.key_square_bg.scaled(50, 50))
 
         if key.char.lower() == 'e':
             window.e_bg.setPixmap(window.key_square_bg.scaled(50, 50))
@@ -162,7 +173,7 @@ def on_press(key):
             window.r_bg.setPixmap(window.key_square_bg.scaled(50, 50))
         if key.char.lower() == 'c':
             window.c_bg.setPixmap(window.key_square_bg.scaled(50, 50))
-            
+
     except AttributeError:
         if key == Key.esc:
             window.esc_bg.setPixmap(window.key_rect_bg.scaled(66, 33))
@@ -174,7 +185,7 @@ def on_press(key):
             window.enter_bg.setPixmap(window.key_rect_bg.scaled(100, 50))
         if key == Key.space:
             window.space_bg.setPixmap(window.key_space_bg.scaled(150, 50))
-        
+
 
 def on_release(key):
     try:
@@ -186,6 +197,8 @@ def on_release(key):
             window.s_bg.setPixmap(window.key_square_fg.scaled(50, 50))
         if key.char.lower() == 'd':
             window.d_bg.setPixmap(window.key_square_fg.scaled(50, 50))
+        if key.char.lower() == 'f':
+            window.f_bg.setPixmap(window.key_square_fffg.scaled(50, 50))
 
         if key.char.lower() == 'e':
             window.e_bg.setPixmap(window.key_square_fg.scaled(50, 50))
@@ -218,7 +231,7 @@ if __name__ == '__main__':
     app = QApplication([])
     window = MainWindow()
     window.show()
-    
+
     sys.exit(app.exec_())
 
 
